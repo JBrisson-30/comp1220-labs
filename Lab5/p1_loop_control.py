@@ -22,7 +22,15 @@ from lab5_checks import check, run, summary
 # ---------------------------------------------------------------------------
 def odd_numbers_below(limit):
     """Return a list of the odd numbers 1, 3, 5, ... that are < limit."""
-    raise NotImplementedError
+    first_num = 1
+    number_to_print = first_num
+    odd_numbers = []
+
+    while (number_to_print < limit):
+        odd_numbers.append(number_to_print)
+        number_to_print = number_to_print + 2
+    return odd_numbers
+        
 
 
 # ---------------------------------------------------------------------------
@@ -30,7 +38,13 @@ def odd_numbers_below(limit):
 # ---------------------------------------------------------------------------
 def total(numbers):
     """Return the sum of the numbers in the list, using a for loop."""
-    raise NotImplementedError
+    total_sum = 0
+
+    for number in numbers:
+        total_sum += number
+    
+    return total_sum
+            
 
 
 # ---------------------------------------------------------------------------
@@ -48,7 +62,16 @@ def total(numbers):
 # ---------------------------------------------------------------------------
 def repeat_until_version():
     """Return Z computed with a posttest (repeat ... until) loop."""
-    raise NotImplementedError
+    Z = 0
+    X = 1
+    
+    while True:
+        Z = Z + X
+        X = X + 1
+        if not (X < 6):
+            break
+    
+    return Z
 
 
 if __name__ == "__main__":

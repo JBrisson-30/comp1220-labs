@@ -1,14 +1,14 @@
 # Lab 5: Written Answers
 
-Name:
+Name: Jonah Brisson
 
 ---
 
 ## Problem 1 (2 pts)
 
-**Which loop-control part is broken in the book's never-ending loop?**
+**Which loop-control part is broken in the book's never-ending loop?** The test is broken because the number increases by 2 each time, skipping over 6 and never meeting the condition to stop.
 
-**What change in your 1a guarantees termination?**
+**What change in your 1a guarantees termination?** I changed the loop so that once the number reaches or passes the limit, the loop stops instead of continuing forever.
 
 ---
 
