@@ -19,14 +19,26 @@ from lab5_checks import check, run, summary
 # 2a. Iterative version: use a while loop.
 def gcd(x, y):
     """Return the greatest common divisor of positive integers x and y."""
-    raise NotImplementedError
+    while x != 0 and y != 0:
+        if x > y:
+            x = x % y
+        else:
+            y = y % x
+    return x if x != 0 else y
 
 
 # 2b. Recursive version (Chapter 5 Review Problem 30). No loops allowed:
 #     the function must call itself. What is the base case?
 def gcd_recursive(x, y):
     """Return the GCD of x and y using recursion instead of a loop."""
-    raise NotImplementedError
+    if x == 0:
+        return y
+    if y == 0:
+        return x
+    if x > y:
+        return gcd_recursive(x % y, y)
+    else:
+        return gcd_recursive(x, y % x)
 
 
 if __name__ == "__main__":
