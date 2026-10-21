@@ -20,7 +20,7 @@ Name: Jonah Brisson
 |  |  |  |
 |  |  |  |
 
-**Which Polya phase is writing the functions? Which phase is trying other products?**
+**Which Polya phase is writing the functions? Which phase is trying other products?** Writing the functions is the carrying out the plan phase because we are putting our algorithm into code. Trying other products is the looking back phase because we are testing our solution with different inputs to see how it works.
 
 ---
 
@@ -28,26 +28,36 @@ Name: Jonah Brisson
 
 **1. Prediction (written BEFORE running):** the list after outer passes 1–4.
 
-```text
-pass 1:
-pass 2:
-pass 3:
-pass 4:
-```
+Starting list: Marisol, Dev, Quinn, Abel, Tamsin, Jonah, Beatriz, Ollie, Keiko, Hugo, Ingrid, Ezra
+pass 1: Dev, Marisol, Quinn, Abel, Tamsin, Jonah, Beatriz, Ollie, Keiko, Hugo, Ingrid, Ezra
+pass 2: Dev, Marisol, Quinn, Abel, Tamsin, Jonah, Beatriz, Ollie, Keiko, Hugo, Ingrid, Ezra
+pass 3: Abel, Dev, Marisol, Quinn, Tamsin, Jonah, Beatriz, Ollie, Keiko, Hugo, Ingrid, Ezra
+pass 4: Abel, Dev, Marisol, Quinn, Tamsin, Jonah, Beatriz, Ollie, Keiko, Hugo, Ingrid, Ezra
+
 
 **Actual output (copied from the run):**
-
-```text
-```
+Before: ['Marisol', 'Dev', 'Quinn', 'Abel', 'Tamsin', 'Jonah', 'Beatriz', 'Ollie', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Dev', 'Marisol', 'Quinn', 'Abel', 'Tamsin', 'Jonah', 'Beatriz', 'Ollie', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Dev', 'Marisol', 'Quinn', 'Abel', 'Tamsin', 'Jonah', 'Beatriz', 'Ollie', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Abel', 'Dev', 'Marisol', 'Quinn', 'Tamsin', 'Jonah', 'Beatriz', 'Ollie', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Abel', 'Dev', 'Marisol', 'Quinn', 'Tamsin', 'Jonah', 'Beatriz', 'Ollie', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Abel', 'Dev', 'Jonah', 'Marisol', 'Quinn', 'Tamsin', 'Beatriz', 'Ollie', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Abel', 'Beatriz', 'Dev', 'Jonah', 'Marisol', 'Quinn', 'Tamsin', 'Ollie', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Abel', 'Beatriz', 'Dev', 'Jonah', 'Marisol', 'Ollie', 'Quinn', 'Tamsin', 'Keiko', 'Hugo', 'Ingrid', 'Ezra']
+['Abel', 'Beatriz', 'Dev', 'Jonah', 'Keiko', 'Marisol', 'Ollie', 'Quinn', 'Tamsin', 'Hugo', 'Ingrid', 'Ezra']
+['Abel', 'Beatriz', 'Dev', 'Hugo', 'Jonah', 'Keiko', 'Marisol', 'Ollie', 'Quinn', 'Tamsin', 'Ingrid', 'Ezra']
+['Abel', 'Beatriz', 'Dev', 'Hugo', 'Ingrid', 'Jonah', 'Keiko', 'Marisol', 'Ollie', 'Quinn', 'Tamsin', 'Ezra']
+['Abel', 'Beatriz', 'Dev', 'Ezra', 'Hugo', 'Ingrid', 'Jonah', 'Keiko', 'Marisol', 'Ollie', 'Quinn', 'Tamsin']
+After:  ['Abel', 'Beatriz', 'Dev', 'Ezra', 'Hugo', 'Ingrid', 'Jonah', 'Keiko', 'Marisol', 'Ollie', 'Quinn', 'Tamsin']
 
 **2. Loop control in your code**
 
 | Loop | Initialize | Test | Modify |
 |---|---|---|---|
-| Outer |  |  |  |
-| Inner |  |  |  |
+| Outer | i = 1 | 1 > len(items) | i increases by 1 |
+| Inner | j = i -1 | j <= 0 and items [j] > pivot | j -= 1 |
 
-**3. Why "greater than" and not "greater than or equal to"?** What changed with `["Fay", "Al", "Fay", "Bo"]`?
+**3. Why "greater than" and not "greater than or equal to"?** What changed with `["Fay", "Al", "Fay", "Bo"]`? We use > instead of >= because we don't want to move names that are equal. With ["Fay", "Al", "Fay", "Bo"], the final alphabetical order stays the same, but using >= would switch the order of the two Fays. Using > keeps them in their original order.
 
 ---
 
