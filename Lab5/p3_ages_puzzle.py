@@ -20,25 +20,62 @@ from lab5_checks import check, run, summary
 def triples_with_product(product):
     """Return every (a, b, c) with a <= b <= c and a * b * c == product,
     in increasing order of a, then b."""
-    raise NotImplementedError
+    triples = []
+    for a in range(1, product + 1):
+        for b in range(a, product + 1):
+            for c in range(b, product + 1):
+                if a * b * c == product:
+                    triples.append((a, b, c))
+    return triples
 
 
 # 3b. Clue 2. Which sums appear MORE than once among the triples?
 def repeated_sums(triples):
     """Return a sorted list of the sums that occur for two or more triples."""
-    raise NotImplementedError
+    sums_count = {}
+
+    for triple in triples:
+        s = triple[0] + triple[1] + triple[2]
+        if s in sums_count:
+            sums_count[s] += 1
+        else:
+            sums_count[s] = 1
+
+    repeated = []
+    for s, count in sums_count.items():
+        if count > 1:
+            repeated.append(s)
+
+    # Sort without using sorted() or sort()
+    for i in range(len(repeated)):
+        for j in range(i + 1, len(repeated)):
+            if repeated[i] > repeated[j]:
+                repeated[i], repeated[j] = repeated[j], repeated[i]
+
+    return repeated
+
 
 
 # 3c. Clue 3. Is there a single oldest child (no tie for oldest)?
 def has_unique_oldest(triple):
     """Return True if the largest age in the triple appears only once."""
-    raise NotImplementedError
+    return triple.count(triple[2]) == 1
 
 
 # 3d. Put the three clues together.
 def solve_ages(product):
     """Return the list of triples that survive all three clues."""
-    raise NotImplementedError
+    triples = triples_with_product(product)
+    sums = repeated_sums(triples)
+    result = []
+
+    for triple in triples:
+        triple_sum = triple[0] + triple[1] + triple[2]
+
+        if triple_sum in sums and has_unique_oldest(triple):
+            result.append(triple)
+
+    return result
 
 
 if __name__ == "__main__":
