@@ -66,10 +66,9 @@ After:  ['Abel', 'Beatriz', 'Dev', 'Ezra', 'Hugo', 'Ingrid', 'Jonah', 'Keiko', '
 **1. Predictions vs. results**
 
 | Target | On roster? | Predicted `visited` | Actual `visited` |
-|---|---|---|---|
 | Kenji | Yes | Priya, Isadora, Malik, Kenji | Priya, Harper, Lucia, Jasper, Kenji |
 | Priya | Yes | Priya | Priya |
-| Gideon | Yes | Priya, Harper, Dahlia, Farah, Gideon | Priya, Harper, Dahlia, Farah, Gideom |
+| Gideon | Yes | Priya, Harper, Dahlia, Farah, Gideon | Priya, Harper, Dahlia, Farah, Gideon |
 
 **2. Base cases:** 
 if not items: returns False because there's nothing left to search.
@@ -88,19 +87,38 @@ An unsorted list like [2, 9, 4, 7, 1] with a target of 9 causes binary search to
 **Insertion sort table (paste):**
 
 ```text
+   n | sorted     n-1| reversed (n^2-n)/2| shuffled  (n^2-n)/4
+   10|      9       9|       45        45|       27       22.5
+   20|     19      19|      190       190|      146       95.0
+   40|     39      39|      780       780|      414      390.0
+   80|     79      79|     3160      3160|     1766     1580.0
+  160|    159     159|    12720     12720|     6309     6360.0
+  320|    319     319|    51040     51040|    25558    25520.0
 ```
 
 **Binary search table (paste):**
 
 ```text
+n      | max visited | log2(n)
+15     |      4      |  3.91
+100    |      7      |  6.64
+200    |      8      |  7.64
+1000   |      10     |  9.97
+30000  |      15     |  14.87
+100000 |      17     |  16.61
 ```
 
 1. Do best and worst cases match the formulas exactly?
+Yes, both the best and worst cases match the formulas exactly. The sorted lists followed n - 1 comparisons, and the reversed lists followed (n² - n) / 2 comparisons.
 
 2. How close is the shuffled count to the average-case estimate?
+The shuffled counts were pretty close to the average-case estimates, especially for larger lists. There were some differences because the shuffled lists were randomly arranged, but the estimates were generally accurate.
 
 3. What happens to the work when n doubles (insertion sort vs. binary search)?
+When n doubles, insertion sort takes about four times as many comparisons in the worst case, while binary search only needs about one additional check. Binary search handles larger lists much more efficiently.
 
 4. Why does binary search make the registrar's 30,000-record search feel instant?
+Binary search makes searching 30,000 records feel almost instant because it cuts the remaining list in half with each check. Instead of searching through thousands of records one by one, it only needed a maximum of 15 checks in our experiment.
 
 5. A real situation where data arrives almost sorted:
+A real example would be a school adding a new student to an already alphabetized roster. Most of the names are already in order, so only the new student's name needs to be placed in the correct position.
