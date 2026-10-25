@@ -18,17 +18,26 @@ from lab5_data import ARMSTRONG_LIMIT
 
 def sum_of_digit_cubes(n):
     """Return the sum of the cubes of the digits of n. Use a while loop."""
-    raise NotImplementedError
+    total = 0
+    while n > 0:
+        digit = n % 10
+        total += digit ** 3
+        n //= 10
+    return total
 
 
 def is_armstrong(n):
     """Return True if n is an Armstrong number."""
-    raise NotImplementedError
+    return n > 0 and n == sum_of_digit_cubes(n)
 
 
 def armstrong_numbers(limit):
     """Return a list of every Armstrong number from 1 up to (not including) limit."""
-    raise NotImplementedError
+    result = []
+    for i in range(1, limit):
+        if is_armstrong(i):
+            result.append(i)
+    return result
 
 
 if __name__ == "__main__":
