@@ -26,7 +26,16 @@ def binary_search(items, target, visited):
 
     Append each test entry you examine to the list `visited`.
     """
-    raise NotImplementedError
+    if not items:
+        return False
+    mid = len(items) // 2
+    visited.append(items[mid])
+    if items[mid] == target:
+        return True
+    elif target < items[mid]:
+        return binary_search(items[:mid], target, visited)
+    else:
+        return binary_search(items[mid + 1:], target, visited)
 
 
 def search_and_report(items, target):
@@ -50,4 +59,8 @@ if __name__ == "__main__":
 
     # Your own test: pick a name and predict the visited list BEFORE running.
     # Record your prediction and the actual result in written_answers.md.
+    check("find 'Kenji'", 
+          run("binary_search", search_and_report, CLASS_ROSTER, "Kenji"),
+          (True, ["Priya", "Harper", "Lucia", "Jasper", "Kenji"]))
+
     summary()

@@ -67,15 +67,19 @@ After:  ['Abel', 'Beatriz', 'Dev', 'Ezra', 'Hugo', 'Ingrid', 'Jonah', 'Keiko', '
 
 | Target | On roster? | Predicted `visited` | Actual `visited` |
 |---|---|---|---|
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Kenji | Yes | Priya, Isadora, Malik, Kenji | Priya, Harper, Lucia, Jasper, Kenji |
+| Priya | Yes | Priya | Priya |
+| Gideon | Yes | Priya, Harper, Dahlia, Farah, Gideon | Priya, Harper, Dahlia, Farah, Gideom |
 
-**2. Base cases:**
+**2. Base cases:** 
+if not items: returns False because there's nothing left to search.
+if items[mid] == target: returns True because the target has been found.
 
 **3. Number of activations when "Gideon" is found:**
+5 activations. Each activation checks one middle entry, and Gideon is found on the fifth check.
 
 **4. An unsorted list and target where binary search fails:**
+An unsorted list like [2, 9, 4, 7, 1] with a target of 9 causes binary search to fail. It checks 4 first and searches the right half because 9 > 4, even though 9 is in the left half. It eventually returns False even though 9 is in the list.
 
 ---
 
