@@ -16,9 +16,9 @@ Name: Jonah Brisson
 
 | Product | `solve_ages` result | One, none, or many answers? |
 |---:|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| 12 |      `[]`     | None |
+| 36 | `[(2, 2, 9)]` | One |
+| 72 | `[(3, 3, 8)]` | One |
 
 **Which Polya phase is writing the functions? Which phase is trying other products?** Writing the functions is the carrying out the plan phase because we are putting our algorithm into code. Trying other products is the looking back phase because we are testing our solution with different inputs to see how it works.
 
@@ -66,6 +66,7 @@ After:  ['Abel', 'Beatriz', 'Dev', 'Ezra', 'Hugo', 'Ingrid', 'Jonah', 'Keiko', '
 **1. Predictions vs. results**
 
 | Target | On roster? | Predicted `visited` | Actual `visited` |
+|---|---|---|---|
 | Kenji | Yes | Priya, Isadora, Malik, Kenji | Priya, Harper, Lucia, Jasper, Kenji |
 | Priya | Yes | Priya | Priya |
 | Gideon | Yes | Priya, Harper, Dahlia, Farah, Gideon | Priya, Harper, Dahlia, Farah, Gideon |
