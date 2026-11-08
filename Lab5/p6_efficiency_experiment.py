@@ -36,16 +36,29 @@ def make_list(n, order):
     order is "sorted", "reversed", or "shuffled". A shuffled list uses
     random.Random(n) so everyone gets the same "random" list.
     """
-    # TODO: build and return the list. Hint: list(range(1, n + 1)),
-    #       reversed(...), and random.Random(n).shuffle(the_list)
-    raise NotImplementedError
+    numbers = list(range(1, n + 1))
+    if order == "sorted":
+        return numbers
+    elif order == "reversed":
+        return list(reversed(numbers))
+    elif order == "shuffled":
+        rng = random.Random(n)
+        rng.shuffle(numbers)
+        return numbers
+    else:
+        raise ValueError(f"Unknown order: {order}")
 
 
 def max_interrogations(sorted_list, targets):
     """Binary-search sorted_list for each target. Return the LARGEST number
     of entries visited by any single search."""
-    # TODO: use binary_search(sorted_list, target, visited) from Problem 5.
-    raise NotImplementedError
+    max_visits = 0
+    for target in targets:
+        visited = []
+        binary_search(sorted_list, target, visited)
+        if len(visited) > max_visits:
+            max_visits = len(visited)
+    return max_visits
 
 
 def sort_table():

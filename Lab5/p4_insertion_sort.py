@@ -29,7 +29,20 @@ def insertion_sort(items, show=False):
     Return the number of comparisons made between list entries.
     If show is True, print the list after each pass of the OUTER loop.
     """
-    raise NotImplementedError
+    comparisons = 0
+    for i in range(1, len(items)):
+        pivot = items[i]
+        j = i - 1
+        while j >= 0 and items[j] > pivot:
+            comparisons += 1
+            items[j + 1] = items[j]
+            j -= 1
+        if j >= 0:
+            comparisons += 1
+        items[j + 1] = pivot
+        if show:
+            print(items)
+    return comparisons
 
 
 if __name__ == "__main__":
