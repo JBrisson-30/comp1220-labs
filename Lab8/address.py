@@ -8,4 +8,10 @@ Replace `pass` with one line.
 
 def address(x, cols, row, col):
     """Return the address of the entry at the given row and column."""
-    pass
+
+    starting_point = x
+
+    # get to Row starting with row
+    # we need to add row X cols
+
+    return starting_point + (row - 1) * cols + (col - 1)

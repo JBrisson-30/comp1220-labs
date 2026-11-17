@@ -6,8 +6,12 @@ Replace each `pass` with your own code. Each function needs one or two lines.
 """
 
 
+from pytest import Item
+
+
 def enqueue(queue, item):
     """Add item at the tail of the queue."""
+    queue.append(item)
     pass
 
 
@@ -16,4 +20,21 @@ def dequeue(queue):
 
     If the queue is empty, return None.
     """
-    pass
+
+    if len(queue) == 0:
+        return None
+
+    output_value = queue.pop(0)
+
+    return output_value
+
+
+
+
+
+example_list = [1, 2, 3]
+
+
+item = dequeue(example_list)    
+print(item)
+print(example_list)
